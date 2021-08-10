@@ -37,7 +37,7 @@
                                         <tr>
                                             <td>
                                                 <div class="img">
-                                                    <a href="{% url 'product-details' i.product.category.slug i.product.slug i.product.id %}"><img src="{{i.product.image.url}}" style="height:2000px;" alt="Image">
+                                                    <a href="{% url 'product-details' i.product.category.slug i.product.slug i.product.id %}"><img src="{{i.product.image.url}}" style="height:300px;object-fit:contain;margin-left:auto;margin-right: auto;" alt="Image">
                                                     <p>{{i.product.name}}</p></a>
                                                 </div>
                                             </td>

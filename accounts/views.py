@@ -27,7 +27,7 @@ def index(request, slug=None):
 @login_required(login_url='user/register/')
 def productList(request):
     product_list = ProductModel.objects.all()
-
+    category = CategoryModel.objects.all()
     page = request.GET.get('page', 1)
     paginator = Paginator(product_list, 10)
     try:
@@ -37,9 +37,10 @@ def productList(request):
     except EmptyPage:
         product = paginator.page(paginator.num_pages)
     dict_value = {
-        'product': product
+        'product': product,
+        'category': category
     }
-    return render(request, 'accounts/product-list.html', dict_value)
+    return render(request, 'accounts/search-list.html', dict_value)
 
 
 
@@ -58,8 +59,10 @@ def search(request):
     if 'search' in request.GET:
         search = request.GET['search']
         product = ProductModel.objects.all().filter(Q(name__contains=search)|Q(price__contains=search)|Q(description__contains=search))
+        category = CategoryModel.objects.all()
         dict_value = {
-            'product' : product
+            'product' : product,
+            'category':category
         }
     return render(request,'accounts/search-list.html',dict_value)
 
