@@ -8,7 +8,7 @@ from . import views
 
 urlpatterns = [
     path('',views.index,name='index'),
-    path('cateogry-details/<slug:slug>',views.index,name='index-category'),
+    path('category-details/<slug:slug>',views.index,name='index-category'),
     # Product
     path('product-list/',views.productList,name='product-list'),
     path('product-details/<slug:cat_slug>/<slug:slug>/<int:pk>/',views.productDetails,name='product-details'),

@@ -42,3 +42,8 @@ def Register(request):
 def Logout(request):
     logout(request)
     return redirect('register')
+
+
+
+def grapes(request):
+    return render(request,'user/grapes.html')
